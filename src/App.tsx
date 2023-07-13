@@ -1,11 +1,13 @@
-import ListGroup from './components/ListGroup';
+import Button from './components/Button';
 
 function App() {
-  const city = ['New York', 'Delhi', 'Jaipur', 'Tokyo', 'Las Vegas'];
-
   return (
     <div>
-      <ListGroup items={city} heading='List of cities' />
+      <Button
+        color='danger'
+        button='Green'
+        setOnClick={() => alert('btn clicked')}
+      />
     </div>
   );
 }

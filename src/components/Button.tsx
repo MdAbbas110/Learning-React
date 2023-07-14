@@ -1,17 +1,18 @@
-interface Props {
-  button: string;
-  color?: 'primary' | 'danger' | 'dark';
-  setOnClick: () => void;
-}
+// interface Props {
+// button: string;
+// color?: 'primary' | 'danger' | 'dark';
+// setOnClick: () => void;
+// }
 
-const Button = ({ button, setOnClick, color = 'dark' }: Props) => {
+import style from './Button.module.css';
+
+const Button = () => {
   return (
     <button
       type='button'
-      className={'p-4 btn btn-' + color}
-      onClick={setOnClick}
+      className={[style.btn, style.btnPrimary, style.btnText].join(' ')}
     >
-      {button}
+      Click ME
     </button>
   );
 };

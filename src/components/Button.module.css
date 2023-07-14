@@ -1,0 +1,15 @@
+.btn {
+    padding: 12px;
+    border-style: none;
+    border-radius: 12px;
+}
+
+.btnPrimary{
+    background-color: blueviolet;
+    color: rgb(232, 152, 95);
+}
+
+.btnText {
+    font-size: 2rem;
+    font-weight: 500;
+}

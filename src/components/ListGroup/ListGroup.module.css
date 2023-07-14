@@ -1,0 +1,17 @@
+.listGroup {
+    list-style: none;
+    padding: 0;
+    background-color: rgb(221, 0, 255);
+}
+.liGroup {
+    font-size: 2rem;
+}
+
+.container {
+    border-radius: 12px;
+}
+
+.heading {
+    font-weight: 500;
+    color: rgb(181, 53, 53);
+}

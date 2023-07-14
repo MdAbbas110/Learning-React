@@ -17,3 +17,16 @@ const Button = ({ button, setOnClick, color = 'dark' }: Props) => {
 };
 
 export default Button;
+
+/*
+const [alertVisible, setAlertVisibility] = useState(false);
+{alertVisible && (
+  <Alert onClose={() => setAlertVisibility(false)}> Alert</Alert>
+)}
+<Button
+  color='dark'
+  button='Green'
+  setOnClick={() => setAlertVisibility(true)}
+  
+/>
+*/

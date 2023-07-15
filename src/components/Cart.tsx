@@ -18,3 +18,14 @@ const Cart = ({ cartItems, onClear }: Props) => {
 };
 
 export default Cart;
+
+/*
+const [product, setProduct] = useState([
+  'Acer Monitor',
+  'Boat Atom',
+  'Slider',
+
+  <NavBar cartCount={product.length} />
+<Cart cartItems={product} onClear={() => setProduct([])} />
+]);
+*/

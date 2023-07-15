@@ -7,7 +7,6 @@ interface Props {
 
 const Like = ({ onClick }: Props) => {
   const [liked, setLiked] = useState(true);
-
   const Toggle = () => {
     setLiked(!liked);
     onClick();

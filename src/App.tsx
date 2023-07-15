@@ -1,6 +1,6 @@
 //import Alert from './components/Alert';
 // import Button from './components/Button';s
-//import { useState } from 'react';
+import { useState } from 'react';
 // import { BsFillCalendar2DayFill } from 'react-icons/bs';
 
 //import { useState } from 'react';
@@ -9,28 +9,21 @@
 // import ListGroup from './components/ListGroup';
 // import './App.css';
 // import Message from './Message';
-
-import { useState } from 'react';
+//import produce from 'immer'
+import NavBar from './components/NavBar';
+import Cart from './components/Cart';
 
 function App() {
-  const [city, setCity] = useState({
-    name: 'July',
-    address: {
-      city: 'Ghazpur',
-      pinCode: 233002,
-    },
-  });
-
-  const handleCity = () => {
-    setCity({
-      ...city,
-      address: { ...city.address, pinCode: 233001 },
-    });
-  };
+  const [product, setProduct] = useState([
+    'Acer Monitor',
+    'Boat Atom',
+    'Slider',
+  ]);
 
   return (
     <div>
-      <button onClick={handleCity}>Click Me</button>
+      <NavBar cartCount={product.length} />
+      <Cart cartItems={product} onClear={() => setProduct([])} />
     </div>
   );
 }

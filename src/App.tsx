@@ -1,15 +1,21 @@
 import { useState } from 'react';
 
 function App() {
-  const [game, setGame] = useState({
-    id: 1,
-    player: {
-      name: 'BoB',
-    },
+  const [cart, setCart] = useState({
+    discount: 0.1,
+    items: [
+      { id: 1, title: 'product1', quantity: 1 },
+      { id: 2, title: 'product1', quantity: 1 },
+    ],
   });
 
   const handleClick = () => {
-    setGame({ ...game, player: { ...game.player, name: 'Abbas' } });
+    setCart({
+      ...cart,
+      items: cart.items.map((item) =>
+        item.id === 1 ? { ...item, quantity: 2 } : item
+      ),
+    });
   };
 
   return (
@@ -20,3 +26,11 @@ function App() {
 }
 
 export default App;
+
+/* exercise 2
+const [pizza, setPizza] = useState({
+  name: 'Italian',
+  topping: ['pineapples'],
+});
+setPizza({ ...pizza, topping: [...pizza.topping, 'Cheese'] });
+*/

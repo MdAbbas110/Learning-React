@@ -1,23 +1,46 @@
-import ExpandableText from './components/ExpandableText';
+//import Alert from './components/Alert';
+// import Button from './components/Button';s
+//import { useState } from 'react';
+// import { BsFillCalendar2DayFill } from 'react-icons/bs';
+
+//import { useState } from 'react';
+//import Like from './components/Like';
+
+// import ListGroup from './components/ListGroup';
+// import './App.css';
+// import Message from './Message';
+
+import { useState } from 'react';
 
 function App() {
+  const [city, setCity] = useState({
+    name: 'July',
+    address: {
+      city: 'Ghazpur',
+      pinCode: 233002,
+    },
+  });
+
+  const handleCity = () => {
+    setCity({
+      ...city,
+      address: { ...city.address, pinCode: 233001 },
+    });
+  };
+
   return (
     <div>
-      <ExpandableText>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione,
-        maxime corrupti! Tempora magni maxime eaque possimus, expedita nemo
-        optio quasi ut, omnis amet harum deleniti ipsam, mollitia soluta!
-        Deserunt sapiente illum enim dolores aut consequuntur mollitia, corpori
-        quo quaerat hic? Expedita atque vel placeat? Sequi optio exercitationem
-        eaque qui nobis et quibusdam eveniet molestias. Quod, itaque facilis.
-        Laborum error enim deleniti amet est repudiandae labore accusamus, atque
-        ex facere cumque dolor voluptas excepturi culpa eligendi natus quibusdam
-        minima corporis. Nihil molestiae aut cumque at, mollitia, facilis
-        voluptatum laboriosam laborum consequatur inventore cum. Quae facere aut
-        tenetur mollitia, consequuntur dicta reprehenderit!
-      </ExpandableText>
+      <button onClick={handleCity}>Click Me</button>
     </div>
   );
 }
 
 export default App;
+
+/* exercise 2
+const [pizza, setPizza] = useState({
+  name: 'Italian',
+  topping: ['pineapples'],
+});
+setPizza({ ...pizza, topping: [...pizza.topping, 'Cheese'] });
+*/

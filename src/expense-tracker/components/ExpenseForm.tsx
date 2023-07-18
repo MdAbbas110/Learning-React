@@ -1,37 +1,35 @@
-import { z } from 'zod';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import category from '../category';
-
-const schema = z.object({
-  description: z.string().min(3).max(50),
-  amount: z.number().min(0.01).max(1000_000),
-  category: z.enum(category),
-});
-
-type ExpenseFormData = z.infer<typeof schema>;
+import { FormEvent } from 'react';
 
 const ExpenseForm = () => {
   const {
     register,
-    handleSubmit,
     formState: { errors },
-  } = useForm<ExpenseFormData>({ resolver: zodResolver(schema) });
+  } = useForm();
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log(register);
+  };
 
   return (
-    <form action=''>
+    <form onSubmit={handleSubmit}>
       <div className='mb-3'>
         <label htmlFor='description' className='form-label'>
           Description
         </label>
         <input
-          {...register('description')}
+          {...register('description', { required: true, minLength: 3 })}
           id='description'
           type='text'
           className='form-control'
         />
-        {errors.description && (
-          <p className='text-danger'>{errors.description.message}</p>
+        {errors.name?.type === 'required' && (
+          <p className='text-danger'>description is required</p>
+        )}
+        {errors.name?.type === 'minLength' && (
+          <p className='text-danger'>Amount is needed</p>
         )}
       </div>
       <div className='mb-3'>
@@ -39,13 +37,16 @@ const ExpenseForm = () => {
           Amount
         </label>
         <input
-          {...register('amount')}
+          {...register('amount', { required: true, minLength: 1 })}
           id='amount'
           type='number'
           className='form-control'
         />
-        {errors.amount && (
-          <p className='text-danger'>{errors.amount.message}</p>
+        {errors.name?.type === 'required' && (
+          <p className='text-danger'>Amount is Required</p>
+        )}
+        {errors.name?.type === 'minLength' && (
+          <p className='text-danger'>Mention the price</p>
         )}
       </div>
       <div className='mb-3'>
@@ -60,9 +61,6 @@ const ExpenseForm = () => {
             </option>
           ))}
         </select>
-        {errors.category && (
-          <p className='text-danger'>{errors.category.message}</p>
-        )}
       </div>
       <button className='btn btn-primary'>Submit</button>
     </form>

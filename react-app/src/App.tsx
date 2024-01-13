@@ -1,4 +1,5 @@
 import axios from 'axios';
+import apiClient from './services/api-client';
 import { useEffect, useState } from 'react';
 
 interface User {
@@ -70,7 +71,7 @@ function App() {
       .then((er) => console.log(er))
       .catch((e) => {
         setError(e);
-        originalUser;
+        setUsers(originalUser);
       });
   };
 
